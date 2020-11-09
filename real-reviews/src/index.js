@@ -9,7 +9,7 @@ ReactDOM.render(
   <HashRouter>
     <React.StrictMode>
       <App />
-    </React.StrictMode>,
+    </React.StrictMode>
   </HashRouter>,
   document.getElementById('root')
 );

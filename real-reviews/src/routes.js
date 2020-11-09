@@ -10,8 +10,8 @@ import Post from './Components/Post/Post';
 export default (
   <Switch>
     <Route exact path='/' component={Auth} />
-    <Route path='/reviews' components={Reviews} />
-    <Route path='/about' components={About} /> 
+    <Route path='/reviews' component={Reviews} />
+    <Route path='/about' component={About} />  {/*functional component*/}
     <Route path='/profile' component={Profile} />
   </Switch>
 );
