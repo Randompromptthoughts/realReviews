@@ -1,0 +1,30 @@
+.login-button {
+  margin-right: 2.2%;
+}
+
+.register-button {
+  margin-left: 2.2%;
+}
+
+.email-input {
+  width: 30%;
+  margin: auto;
+}
+
+.username-input {
+  width: 30%;
+  margin: auto;
+}
+
+.password-input {
+  width: 30%;
+  margin: auto;
+}
+
+body {
+  background-color: #7d8e9f;
+}
+
+.auth-text {
+  color: #f2f2f2;
+}
