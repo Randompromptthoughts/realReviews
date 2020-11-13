@@ -1,6 +1,15 @@
-.p-tags {
-  background-color: #f2f2f2;
-  color: #f2f2f2;
-  margin-top: 100px;
-  border: 1px solid black;
+.my-big-head {
+  height: 40vh;
+  width: 40vh;
+  border: 1px solid #70b7fa;
+  border-radius: 50%;
+  margin-top: 10%;
+  margin-right: 5%;
+}
+
+.paragraph {
+  margin-left: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

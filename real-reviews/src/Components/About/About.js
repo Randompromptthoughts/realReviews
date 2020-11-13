@@ -1,12 +1,17 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { Picture } from '../About/Super cropped head.png';
 import './About.css';
 
 const About = () => {
     return(
       <Container>
-      
-          About Component hehaind llsiddn lgone pcknfe lsi hiemap hase
+        <section className='my-big-head'>
+          <img className='picture' src={Picture}
+
+          />
+        </section>
+          <p className='paragraph'>About Component hehaind llsiddn lgone pcknfe lsi hiemap hase</p>
             
       </Container>
       
