@@ -1,15 +1,24 @@
 .my-big-head {
   height: 40vh;
   width: 40vh;
-  border: 1px solid #70b7fa;
+  border: 3px solid #70b7fa;
   border-radius: 50%;
   margin-top: 10%;
   margin-right: 5%;
 }
 
 .paragraph {
+  position: absolute;
   margin-left: 20%;
+  bottom: 30vh;
+  left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.picture {
+  height: 39vh;
+  width: 39vh;
+  border-radius: 50%;
 }

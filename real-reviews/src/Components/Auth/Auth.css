@@ -28,3 +28,7 @@ body {
 .auth-text {
   color: #f2f2f2;
 }
+
+.auth-body {
+  margin-top: 7%;
+}

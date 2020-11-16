@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getUser } from '../../redux/reducer';
 import Figure from 'react-bootstrap/Figure';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
@@ -6,11 +8,19 @@ import Button from 'react-bootstrap/Button';
 import './Profile.css';
 
 class Profile extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: '',
+      email: ''
+    }
+  }
+  
   render() {
     return (
       <section>
         <h3>
-          My Profile Page
+          {this.state.username}'s Profile Page
         </h3>
         <Figure className='figure-box'>
           <Figure.Image className='profile-pic' />
@@ -35,4 +45,6 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+// const mapStateToProps = reduxState => reduxState;
+// console.log(mapStateToProps);
+export default connect(null, {getUser})(Profile);
