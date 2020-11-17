@@ -1,5 +1,9 @@
 .reviews-box {
-  height: 50px;
-  width: 100%;
-  background-color: brown;
+  height: 25vh;
+  width: 39vw;
+  background-color: silver;
+  border: 2px solid #14599a;
+  position: fixed;
+  left: 32%;
+  top: 25%;
 }

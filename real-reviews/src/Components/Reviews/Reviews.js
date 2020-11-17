@@ -6,7 +6,6 @@ class Reviews extends Component {
   render() {
     return (
       <section className='reviews-box'>
-        Reviews Component
         <Post />
       </section>
     );

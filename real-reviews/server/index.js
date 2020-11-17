@@ -34,4 +34,9 @@ app.get('/api/logout', authController.logout);
 
 //Post Endpoints
 
+app.get('/api/posts', postController.getUserPost);
+app.post('/api/posts', postController.createPost);
+app.put('/api/post/:id', postController.updatePost);
+app.delete('/api/posts/:id', postController.deletePost);
+
 app.listen(SERVER_PORT, () => console.log(`Server is running on port ${SERVER_PORT}`));

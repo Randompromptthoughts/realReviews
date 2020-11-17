@@ -44,7 +44,7 @@ class Auth extends Component {
     e.preventDefault();
     axios.post('/api/register', { email: this.state.email, password: this.state.password })
       .then(res => {
-
+//
       })
   }
 

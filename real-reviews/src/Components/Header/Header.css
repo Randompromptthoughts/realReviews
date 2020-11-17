@@ -5,10 +5,23 @@
   border-bottom: 3px solid #0b4e8c;
 } */
 
+.real-reviews-real-gamers {
+  position: relative;
+  right: 20%;
+  top: 3.5vh;
+  color: black;
+  text-decoration: none;
+}
+
+.pill {
+  height: 13px;
+  font-size: x-small;
+}
+
 .gamepad {
   position: relative;
-  right: 130%;
-  bottom: 35%;
+  right: 105%;
+  bottom: 42%;
   max-width: 100%;
   height: auto;
 }
@@ -24,6 +37,10 @@
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.20);
+}
+
+.nav-item {
+  height: 100px;
 }
 
 .text {
