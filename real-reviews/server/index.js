@@ -16,12 +16,12 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   secret: SESSION_SECRET,
-  cookie: {maxAge: 1000 * 60 * 60 * 24}
+  cookie: { maxAge: 1000 * 60 * 60 * 24 * 365 } //One year
 }));
 
 massive({
   connectionString: CONNECTION_STRING,
-  ssl: {rejectUnauthorized: false}
+  ssl: { rejectUnauthorized: false }
 }).then(db => {
   app.set('db', db)
   console.log('db connected')
@@ -33,7 +33,6 @@ app.post('/api/login', authController.login);
 app.get('/api/logout', authController.logout);
 
 //Post Endpoints
-
 app.get('/api/posts', postController.getUserPost);
 app.post('/api/posts', postController.createPost);
 app.put('/api/post/:id', postController.updatePost);

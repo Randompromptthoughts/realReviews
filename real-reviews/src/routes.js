@@ -5,7 +5,6 @@ import Auth from './Components/Auth/Auth';
 import Reviews from './Components/Reviews/Reviews';
 import About from './Components/About/About';
 import Profile from './Components/Profile/Profile';
-import Post from './Components/Post/Post';
 
 export default (
   <Switch>

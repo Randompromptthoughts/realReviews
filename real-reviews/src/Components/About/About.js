@@ -8,7 +8,7 @@ const About = () => {
       <Container>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <section className='my-big-head'>
-          <img className='picture' alt='Dakota Locke Picture' src={Picture}/>
+          <img className='picture' alt='Dakota Locke' src={Picture}/>
         </section>
           <p className='paragraph'>          Hi there, my name is Dakota Locke. Also known to some by RandomPromptthoughts. I'm the creator and founder of this website, I have always enjoyed reading articles and reviews online but feel as though some communities are quite biased. Now you can create your own personal reviews for games and share them among other users. No more big corporations. Just you and others sharing their own opinions. Real people, real gamers.
           I hope you're enjoying Real Reviews!</p>

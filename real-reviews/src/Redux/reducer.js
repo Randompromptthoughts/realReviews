@@ -41,7 +41,7 @@ export default function reducer(state = initialState, action){ //reducerTwo
   const {type, payload} = action;
 
   switch(type) {
-    case GET_USER: 
+    default: case GET_USER: 
       return {...state, user: payload}
   }
 }
