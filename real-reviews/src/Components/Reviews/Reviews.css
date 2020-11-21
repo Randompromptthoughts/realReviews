@@ -1,9 +1,24 @@
 .reviews-box {
   height: 25vh;
   width: 39vw;
-  background-color: silver;
+  background-color: none;
   border: 2px solid #14599a;
   position: fixed;
   left: 32%;
   top: 25%;
+}
+
+.reviews-input {
+  position: relative;
+  top: 25vh;
+}
+
+.edit-button {
+  position: relative;
+  top: 25vh;
+}
+
+.submit-button {
+  position: relative;
+  top: 25vh;
 }

@@ -9,7 +9,7 @@ const Votes = () => {
 
 
   return (
-    <section className='votes-counter'>
+    <div className='votes-counter'>
       <Button className='up-arrow' onClick={() => setCount(count + 1)}>
         <BsFillCaretUpFill>
           {/* rendered from react-icons package */}
@@ -21,7 +21,7 @@ const Votes = () => {
           {/* same */}
         </BsFillCaretDownFill>
       </Button>
-    </section>
+    </div>
   );
 }
 

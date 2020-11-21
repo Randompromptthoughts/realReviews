@@ -26,36 +26,53 @@ class Auth extends Component {
 
   handleInput = e => {
     this.setState({
+      ...this.state,
       [e.target.name]: e.target.value
     })
   }
 
+  handleEmail = () => {
+    const { email, } = this.state;
+    // console.log(this.state)
+    
+    axios.post('/api/email', { email })
+    .then( () => {
+      this.props.history.push('/reviews');
+    })
+    .catch(err => console.log(err))
+  }
+
   handleLogin = (e) => {
+    e.preventDefault();
     const { email, password } = this.state;
 
     axios.post('/api/login', { email, password })
       .then(res => {
-
+        localStorage.setItem("token", res.data.token);
         this.props.history.push('/reviews');
       })
       .catch(err => console.log(err));
   }
 
   handleRegister = (e) => {
+    e.preventDefault();
+
     const { email, username, password } = this.state;
 
     axios.post('/api/register', { email, username, password })
-      .then(res => {
-
-        this.props.history.push('/reviews');
-      })
+    .then(res => {
+      localStorage.setItem("token", res.data.token);
+      // console.log('hit token')
+      this.handleEmail()
+    })
       .catch(err => {
+        // console.log(`hit2`)
         if (err.statusCode === 409) {
           alert('User already exists');
         } else {
-          alert(`Couldn't register, try again later`)
+          alert(`Couldn't register, Are you sure you're not registered already? try again later`);
         }
-      })
+      });
   }
 
   render() {
@@ -66,29 +83,33 @@ class Auth extends Component {
         <h1 className='auth-text'>Real Reviews. Real People. Real Gamers.</h1>
         <h4 className='started-text'> Create an Account to get Started</h4>
         <Form>
-          <InputGroup value={this.state.email} type='text' name='email' className="email-input"
-            onChange={(e) => this.handleInput(e)}>
+          <InputGroup  type='text' className="email-input">
             <InputGroup.Prepend>
               <InputGroup.Text id="inputGroup-sizing-default">Email</InputGroup.Text>
             </InputGroup.Prepend>
             <FormControl
+              name="email"
               aria-label="Default"
               aria-describedby="inputGroup-sizing-default"
+              onChange={(e) => this.handleInput(e)} value={this.state.email}
             />
           </InputGroup>
           <Form.Group value={this.state.username} controlId='formBasicUsername'>
             <Form.Label>Username</Form.Label>
-            <Form.Control type='username' className='username-input' placeholder='Enter Username' onChange={(e) => this.handleInput(e)} />
+            <Form.Control name="username" type='username' className='username-input' placeholder='Enter Username' 
+            value={this.state.username} onChange={(e) => this.handleInput(e)} />
           </Form.Group>
 
           <Form.Group value={this.state.password} name='password' controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control className='password-input' type="password" placeholder="Password" onChange={(e) => this.handleInput(e)} />
+            <Form.Control name="password" className='password-input' type="password" placeholder="Password" 
+            value={this.state.password} onChange={(e) => this.handleInput(e)} />
           </Form.Group>
           <Button className='login-button' variant="primary" type="login" onClick={this.handleLogin}>
             Login
             </Button>
-          <Button className='register-button' variant='primary' type='register' onClick={this.handleRegister}>
+          <Button className='register-button' variant='primary' type='register'
+          onClick={this.handleRegister}>
             Register
           </Button>
         </Form>
