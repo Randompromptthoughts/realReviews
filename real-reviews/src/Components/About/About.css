@@ -1,4 +1,7 @@
 .my-big-head {
+  position: absolute;
+  left: 40%;
+  bottom: 35%;
   height: 40vh;
   width: 40vh;
   border: 3px solid #70b7fa;
@@ -9,8 +12,9 @@
 
 .paragraph {
   position: absolute;
-  margin-left: 20%;
-  bottom: 30vh;
+  margin-left: 5%;
+  margin-right: 5%;
+  bottom: 18vh;
   left: 10px;
   display: flex;
   justify-content: center;
@@ -21,4 +25,11 @@
   height: 39vh;
   width: 39vh;
   border-radius: 50%;
+}
+
+.icons-body {
+  position: absolute;
+  top: 90%;
+  left: 20%;
+  right: 20%;
 }

@@ -5,24 +5,18 @@ import Nav from 'react-bootstrap/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Badge from 'react-bootstrap/Badge';
 import './Header.css';
-import Axios from 'axios';
-
 
 class Header extends Component {
 
 handleLogout = () => {
-  Axios.get('/api/logout')
-  .then(() => {
-
-    this.props.history.push('/');
-  })
-  .catch(err => console.log(err));
+    localStorage.removeItem('token')
+    this.props.history.push('/login');
 }
 
   render() {
     return (
       <section>
-        {this.props.location.pathname !== '/'
+        {this.props.location.pathname !== '/login'
           ? (<Nav className="justify-content-end" activeKey="/home">
             <div>
               <div>

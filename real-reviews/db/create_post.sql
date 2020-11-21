@@ -1,5 +1,5 @@
 insert into posts (
-content
+content,
 author_id
 ) values (
 ${content},

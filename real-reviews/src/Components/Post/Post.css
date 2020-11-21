@@ -1,0 +1,13 @@
+.post-box {
+  background-color: red;
+  color: black;
+  height: 60px;
+  width: 60px;
+}
+
+.postie {
+  background-color: slateblue;
+  color: orange;
+  height: 60px;
+  width: 80px;
+}

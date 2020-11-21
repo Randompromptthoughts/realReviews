@@ -1,11 +1,11 @@
 module.exports = {
   createPost: (req, res) => {
     console.log(req.session)
-    const author_id = req.session.user.id;
+    const author_id = req.user_id;
     const { content } = req.body;
     const db = req.app.get('db');
 
-    db.create_post(content, author_id)
+    db.create_post({content, author_id})
     .then(() => res.sendStatus(200))
     .catch(err => {
       res.status(500).send('Post did not save')
@@ -14,7 +14,7 @@ module.exports = {
   },
 
   getUserPost: (req, res) => {
-    const { id } = req.session.user;
+    const id = req.user_id;
     const db = req.app.get('db');
     db.get_user_posts(id)
     .then(posts => res.status(200).send(posts))

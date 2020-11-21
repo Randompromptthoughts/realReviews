@@ -21,7 +21,7 @@ create table posts (
   title varchar(50),
   img text,
   content text,
-  author_id foreign key integer references users (user_id)
+  author_id integer references users (user_id)
 );
 
 --more testing

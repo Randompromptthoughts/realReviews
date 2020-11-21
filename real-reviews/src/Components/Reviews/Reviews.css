@@ -7,3 +7,18 @@
   left: 32%;
   top: 25%;
 }
+
+.reviews-input {
+  position: relative;
+  top: 25vh;
+}
+
+.edit-button {
+  position: relative;
+  top: 25vh;
+}
+
+.submit-button {
+  position: relative;
+  top: 25vh;
+}

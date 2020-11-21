@@ -1,23 +1,22 @@
 require('dotenv').config();
 
 const massive = require('massive');
-const session = require('express-session');
 const express = require('express');
 const axios = require('axios');
 const authController = require('./authController');
 const postController = require('./postController');
+const mailController = require('./mailController');
+const jwt = require('jsonwebtoken');
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
+
+
+const signingSecret = process.env.SESSION_SECRET;
 
 const app = express();
 
-app.use(express.json());
+const unauthenticatedRoutes = ['/api/login', '/api/register'];
 
-app.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: SESSION_SECRET,
-  cookie: { maxAge: 1000 * 60 * 60 * 24 * 365 } //One year
-}));
+app.use(express.json());
 
 massive({
   connectionString: CONNECTION_STRING,
@@ -27,10 +26,40 @@ massive({
   console.log('db connected')
 });
 
+app.use(function(req, res, next) {
+  // only allow login as an unauthenticated path
+  if (unauthenticatedRoutes.includes(req.path)) {
+    next();
+    return;
+  }
+
+  // only allow option requests
+  let auth = req.header("Authorization")
+  if (!auth) {
+    res.status(401).send("no authorization provided");
+    return
+  }
+
+  // remove Bearer
+  // auth = auth.slice(7)
+  // console.log(auth)
+  let decoded = jwt.decode(auth, signingSecret);
+  if (!decoded) {
+    res.status(401).send("couldn't verify token");
+    return
+  }
+
+  req.user_id = decoded.user_id;
+
+  next();
+});
+
+//nodeMailer
+app.post('/api/email', mailController.email);
+
 //Auth Endpoints
 app.post('/api/register', authController.register);
 app.post('/api/login', authController.login);
-app.get('/api/logout', authController.logout);
 
 //Post Endpoints
 app.get('/api/posts', postController.getUserPost);
