@@ -18,7 +18,7 @@ module.exports = {
     let hash = bcrypt.hashSync(password, salt);
     const newUser = await db.register_user({ email, username, hash });
 
-    let token = jwt.sign({ user_id: newUser.id }, signingSecret, { algorithm: 'HS256' });
+    let token = jwt.sign({ user_id: newUser.user_id }, signingSecret, { algorithm: 'HS256' });
 
     res.status(201).send({
       token: token,
@@ -44,7 +44,7 @@ module.exports = {
     // clear the password so we don't send it to the client
     delete foundUser[0].password;
 
-    let token = jwt.sign({ user_id: foundUser[0].id }, signingSecret, { algorithm: 'HS256' });
+    let token = jwt.sign({ user_id: foundUser[0].user_id }, signingSecret, { algorithm: 'HS256' });
     res.send({
       token: token,
       user: foundUser[0]

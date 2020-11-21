@@ -9,7 +9,6 @@ const mailController = require('./mailController');
 const jwt = require('jsonwebtoken');
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
-
 const signingSecret = process.env.SESSION_SECRET;
 
 const app = express();
@@ -17,6 +16,7 @@ const app = express();
 const unauthenticatedRoutes = ['/api/login', '/api/register'];
 
 app.use(express.json());
+app.set('etag', false);
 
 massive({
   connectionString: CONNECTION_STRING,
@@ -27,6 +27,9 @@ massive({
 });
 
 app.use(function(req, res, next) {
+  // all responses will be in JSON
+  res.type('application/json');
+
   // only allow login as an unauthenticated path
   if (unauthenticatedRoutes.includes(req.path)) {
     next();
@@ -40,9 +43,6 @@ app.use(function(req, res, next) {
     return
   }
 
-  // remove Bearer
-  // auth = auth.slice(7)
-  // console.log(auth)
   let decoded = jwt.decode(auth, signingSecret);
   if (!decoded) {
     res.status(401).send("couldn't verify token");

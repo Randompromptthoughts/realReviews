@@ -4,6 +4,7 @@ import Post from '../Post/Post';
 import { connect } from 'react-redux';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import './Reviews.css';
 
@@ -62,9 +63,11 @@ class Reviews extends Component {
   render() {
     return (
       <section className='reviews-box'>
-        {this.state.posts.map((post) => {
+        <ListGroup>
+          {this.state.posts.map((post) => {
           return <Post deletePost={this.deletePost} updatePost={this.updatePost} post={post} />
         })}
+        </ListGroup>
         <InputGroup>
           <FormControl
             placeholder="Write your review here.."

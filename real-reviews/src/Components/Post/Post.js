@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
 import Votes from '../Votes/Votes';
 import './Post.css';
 
@@ -33,7 +34,7 @@ class Post extends Component {
 
   render() {
     return (
-      <section className='postie'>
+      <ListGroup.Item>
         {this.state.editing ? (
           <div className='post-box'>
             <input
@@ -55,7 +56,7 @@ class Post extends Component {
                 <Votes />
           </div>)
         }
-      </section>
+      </ListGroup.Item>
     );
   }
 }

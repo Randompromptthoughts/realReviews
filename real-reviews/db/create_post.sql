@@ -3,5 +3,4 @@ content,
 author_id
 ) values (
 ${content},
-${author_id}
-);
+${author_id}) returning id, title, img, content;

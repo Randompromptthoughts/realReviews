@@ -1,5 +1,5 @@
 .votes-counter {
-  position: fixed;
+  position: absolute;
   left: 27%;
   top: 26%;
   height: 120px;
