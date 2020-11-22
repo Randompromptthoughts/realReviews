@@ -1,20 +1,23 @@
 .votes-counter {
   position: absolute;
-  left: 27%;
-  top: 26%;
+  left: 1%;
+  top: 1%;
   height: 120px;
   width: 43px;
 }
 
 .up-arrow {
+  position: absolute;
   color: black;
+  margin-top: 1%;
 }
 
 .down-arrow {
   color: black;
-  z-index: 2;
+  margin-left: 21px;
 }
 
 .count {
   margin-top: 10px;
+  margin-right: 26px;
 }

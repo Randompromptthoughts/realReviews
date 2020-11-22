@@ -5,7 +5,7 @@ import { BsFillCaretDownFill } from 'react-icons/bs';
 import './Votes.css';
 
 const Votes = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0); //React hook #1
 
 
   return (

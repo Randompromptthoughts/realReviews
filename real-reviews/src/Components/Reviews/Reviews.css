@@ -1,24 +1,28 @@
 .reviews-box {
-  height: 25vh;
+  overflow: auto;
+  height: 65vh;
   width: 39vw;
-  background-color: none;
+  background-color: silver;
   border: 2px solid #14599a;
   position: fixed;
   left: 32%;
-  top: 25%;
+  top: 28%;
+  padding: 3px;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
 }
 
-.reviews-input {
-  position: relative;
-  top: 25vh;
+.list-container {
+  height: 60px;
+  padding: 2px;
 }
 
-.edit-button {
-  position: relative;
-  top: 25vh;
+body::-webkit-scrollbar-thumb {
+  scrollbar-color: black;
 }
 
-.submit-button {
-  position: relative;
-  top: 25vh;
+.kicking {
+  width: 38vw;
+  position: fixed;
+  top: 20vh;
 }

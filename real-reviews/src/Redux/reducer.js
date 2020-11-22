@@ -1,7 +1,9 @@
 const initialState = {
-  user: {}, //
-  content: '',
-  profilePic: ''
+  user: {
+    username: 'Dakota Locke'
+  } //
+  // content: '',
+  // profilePic: ''
 }
 
 // const ENTER_CONTENT = 'ENTER_CONTENT';
@@ -41,7 +43,9 @@ export default function reducer(state = initialState, action){ //reducerTwo
   const {type, payload} = action;
 
   switch(type) {
-    default: case GET_USER: 
+     case GET_USER: 
       return {...state, user: payload}
+      default:
+        return state;
   }
 }

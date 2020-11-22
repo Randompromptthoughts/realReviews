@@ -63,23 +63,21 @@ class Reviews extends Component {
   render() {
     return (
       <section className='reviews-box'>
-        <ListGroup>
+        <ListGroup className='list-container'>
           {this.state.posts.map((post) => {
           return <Post deletePost={this.deletePost} updatePost={this.updatePost} post={post} />
         })}
         </ListGroup>
-        <InputGroup>
+        <InputGroup className='kicking'>
           <FormControl
-            placeholder="Write your review here.."
+            placeholder="Write your very own review here..."
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
-            className='reviews-input'
-            value={this.state.content} //here maybe?
+            value={this.state.content} //mental note
             onChange={(e) => this.handleInput(e.target.value)}
-          />
+            />
           <InputGroup.Append>
-            <Button className='submit-button' variant="primary" onClick={this.createPost}>Submit</Button>
-            <Button className='edit-button' variant="primary">Edit</Button>
+            <Button variant="primary" onClick={this.createPost}>Submit</Button>
           </InputGroup.Append>
         </InputGroup>
       </section>

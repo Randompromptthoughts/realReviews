@@ -46,6 +46,11 @@ class Auth extends Component {
     e.preventDefault();
     const { email, password } = this.state;
 
+    let newUser = {
+        username: this.state.username
+    };
+    this.props.getUser(newUser) // redux function updates initial state value when user clicks login
+
     axios.post('/api/login', { email, password })
       .then(res => {
         localStorage.setItem("token", res.data.token);
@@ -77,7 +82,7 @@ class Auth extends Component {
 
   render() {
     // const { username, email } = this.state;
-    // console.log(this.props);
+    console.log(this.props);
     return (
       <section className='auth-body'>
         <h1 className='auth-text'>Real Reviews. Real People. Real Gamers.</h1>
@@ -118,6 +123,6 @@ class Auth extends Component {
   }
 }
 
-const mapStateToProps = reduxState => reduxState;
+// const mapStateToProps = reduxState => reduxState; first argument is mapStateToProps or null. Always. Hence null
 
-export default connect(mapStateToProps, { getUser })(Auth);
+export default connect(null, { getUser })(Auth);
