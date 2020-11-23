@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); //require('dotenv').config()
 
 const massive = require('massive');
 const express = require('express');
@@ -6,6 +6,7 @@ const axios = require('axios');
 const authController = require('./authController');
 const postController = require('./postController');
 const mailController = require('./mailController');
+const path = require('path'); // For hosting
 const jwt = require('jsonwebtoken');
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -66,5 +67,7 @@ app.get('/api/posts', postController.getUserPost);
 app.post('/api/posts', postController.createPost);
 app.put('/api/post/:id', postController.updatePost);
 app.delete('/api/posts/:id', postController.deletePost);
+
+
 
 app.listen(SERVER_PORT, () => console.log(`Server is running on port ${SERVER_PORT}`));

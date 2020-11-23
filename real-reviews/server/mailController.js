@@ -20,7 +20,7 @@ module.exports = {
       let info = await transporter.sendMail({
         from: `Realreviews <${EMAIL}>`,
         to: userEmail,
-        subject: 'Welcome to Realreviews.Realgamers.com!',
+        subject: 'Welcome to Fakerealreviews.com!',
         text: 'Welcome to Real Reviews Real Gamers',
         html: `<div> *cough* When you get your first email from RealreviewsRealgamers.com </div>
               <img src="cid:unique@nodemailer.com"/>`,
